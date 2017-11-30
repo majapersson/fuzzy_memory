@@ -4,4 +4,6 @@
 This is an [assignment](https://github.com/yrgo/wu17/tree/master/JavaScript/07%20-%20Fuzzy%20Memory) for the Javascript course, where I will make a memory game in HTML, CSS and Javascript
 
 ### 2017-11-30
+- Started with Javascript logic, added cards array and shuffle function
+- Basic CSS-styling
 - Initial commit
