@@ -4,8 +4,12 @@
 }
 
 body {
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   height: 100vh;
+  padding: 5%;
 }
 
 .board {
@@ -13,11 +17,15 @@ body {
   grid-template: repeat(4, 1fr) / repeat(4, 1fr);
   height: 100%;
   width: 100%;
+  max-width: 900px;
 }
 
-.container {
-  text-align: center;
-  width: 75%;
+button {
+  background-color: tomato;
+  border: none;
+  color: white;
+  padding: 1em;
+  width: 25%;
 }
 
 .card {
@@ -25,7 +33,7 @@ body {
   background-color: lightGreen;
   border-radius: 10%;
   height: 75%;
-  padding-bottom: 100%;
+  justify-self: center;
   text-align: center;
   transition: all .4s ease-in-out;
   width: 75%;

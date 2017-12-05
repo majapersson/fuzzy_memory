@@ -1,0 +1,23 @@
+@media screen and (min-width: 800px) {
+  .board {
+      grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 799px) {
+  body {
+    height: 200vh;
+  }
+  .board {
+      grid-template: repeat(8, 1fr) / repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 349px) {
+  body {
+    height: 400vh;
+  }
+  .board {
+      grid-template: repeat(16, 1fr) / 1fr;
+  }
+}
