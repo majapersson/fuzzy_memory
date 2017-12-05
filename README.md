@@ -4,8 +4,8 @@
 This is an [assignment](https://github.com/yrgo/wu17/tree/master/JavaScript/07%20-%20Fuzzy%20Memory) for the Javascript course, where I will make a memory game in HTML, CSS and Javascript
 
 ### 2017-12-05
-- Added reset button and game over
-- Added logic for 2 click function
+- Added reset button and game over screen
+- Added logic for limiting number of clicks
 - Fixed compare functions
 
 ### 2017-11-30
