@@ -1,10 +1,4 @@
-// 1. Create array of cards
-// 1b. Shuffle array
-// 2. Loop through array and print out cardDivs
-// 3. Add event listener to cards
-// 4. Make sure you only can click 2 cards
-// 5. If clicked cards have the same number, leave them flipped
-//    else flip them back
+
 // 6. When all cards are flipped, game is over
 // 7. Add reset button to reset all cards to unflipped and shuffle the board
 
@@ -23,16 +17,44 @@ for(let i=0; i<pairs; i++){   // Adds duplicates for each card in stack
 
 const shuffledStack = shuffle(stack); // Shuffles stack
 
-shuffledStack.forEach((card)=> {
-  const cardDiv = `<div class="container" data-number=${card}><div class="card"></div></div>`;
-  document.querySelector('.board').innerHTML += cardDiv; // Create cardDiv for each card
+shuffledStack.forEach((card) => {
+  createCard(card);
 });
 
-const cards = document.querySelectorAll('.container'); // Creates array of cardDivs
+
+const cards = document.querySelectorAll('.card'); // Creates array of cardDivs
+
+let clickArray = [];
+let matchArray = [];
+let counter = 0;
 
 cards.forEach((card) => {     // Adds EventListener for each cardDiv
   card.addEventListener('click', (event) => {
-    event.target.classList.toggle('flipped'); // Flips card
-    console.log(card.dataset.number);
+    event.target.classList.add('clicked'); // Flips card
+    clickArray.push(event.target.dataset.number); // Adds data number to array
+    matchArray.push(card);
+    console.log(event.target.dataset.number);
+
+    if (clickArray.length === 2) {
+      if (clickArray[0] === clickArray[1]){ // If cards data number match
+        console.log('Match found!');
+        matchArray[0].classList.add('matched');
+        matchArray[0].classList.remove('clicked');
+        matchArray[1].classList.add('matched');
+        matchArray[1].classList.remove('clicked');
+        clickArray = [];
+        matchArray = [];
+        counter++;
+        console.log(counter);
+      } else {
+        setTimeout(()=> {
+        console.log('Match not found...');
+        matchArray[0].classList.remove('clicked');
+        matchArray[1].classList.remove('clicked');
+        clickArray = [];
+        matchArray = [];
+        }, 800);
+      }
+    };
   });
 });

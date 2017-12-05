@@ -15,3 +15,13 @@ const shuffle = (array) => {
   };
   return newArray;
 };
+
+/*
+* Creates card div with data-number
+*/
+const createCard = (card) => {
+  const cardDiv = `<div class="card" data-number=${card}>
+                    <h1>${card}
+                  </div>`;
+  document.querySelector('.board').innerHTML += cardDiv; // Create cardDiv for each card
+};

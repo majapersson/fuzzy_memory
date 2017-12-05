@@ -24,11 +24,29 @@ body {
   align-self:center;
   background-color: lightGreen;
   border-radius: 10%;
-  height: 0;
+  height: 75%;
   padding-bottom: 100%;
+  text-align: center;
+  transition: all .4s ease-in-out;
+  width: 75%;
+}
+
+h1 {
+  pointer-events: none;
+  opacity: 0;
   transition: all .4s ease-in-out;
 }
 
-.flipped {
+.clicked {
   background-color: tomato;
+}
+.clicked h1 {
+  opacity: 1;
+}
+.matched {
+  background-color: tomato;
+  pointer-events: none;
+}
+.matched h1 {
+  opacity: 1;
 }
