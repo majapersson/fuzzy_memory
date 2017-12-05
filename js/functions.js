@@ -1,9 +1,18 @@
+/*
+* Shuffles stack and creates card div for each item in stack array
+*/
+const createBoard = () => {
+  const shuffledStack = shuffle(stack); // Shuffles stack
+
+  shuffledStack.forEach((card) => {
+    const cardDiv = `<div class="card" data-number=${card}><h1>${card}</div>`;
+    document.querySelector('.board').innerHTML += cardDiv; // Insert div into .board container
+  });
+  return shuffledStack;
+};
 
 /*
 * Shuffles an array
-*
-* @param array
-* @returns newArray
 */
 const shuffle = (array) => {
   let newArray = [];
@@ -17,11 +26,19 @@ const shuffle = (array) => {
 };
 
 /*
-* Creates card div with data-number
+* Shuffles the children of board container
 */
-const createCard = (card) => {
-  const cardDiv = `<div class="card" data-number=${card}>
-                    <h1>${card}
-                  </div>`;
-  document.querySelector('.board').innerHTML += cardDiv; // Create cardDiv for each card
+const resetBoard = () => {
+  const flipped = document.querySelectorAll('.matched');
+  flipped.forEach(card => {
+    card.classList.remove('matched');
+  });
+
+  const complete = document.querySelector('.complete');
+  complete.classList.remove('visible');
+
+  const board = document.querySelector('.board');
+  for (let i = board.children.length; i >= 0; i--) {
+     board.appendChild(board.children[Math.random() * i | 0]);
+   };
 };

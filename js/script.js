@@ -15,12 +15,7 @@ for(let i=0; i<pairs; i++){   // Adds duplicates for each card in stack
   stack.push(i, i);
 };
 
-const shuffledStack = shuffle(stack); // Shuffles stack
-
-shuffledStack.forEach((card) => {
-  createCard(card);
-});
-
+createBoard();
 
 const cards = document.querySelectorAll('.card'); // Creates array of cardDivs
 
@@ -33,7 +28,6 @@ cards.forEach((card) => {     // Adds EventListener for each cardDiv
     event.target.classList.add('clicked'); // Flips card
     clickArray.push(event.target.dataset.number); // Adds data number to array
     matchArray.push(card);
-    console.log(event.target.dataset.number);
 
     if (clickArray.length === 2) {
       if (clickArray[0] === clickArray[1]){ // If cards data number match
@@ -56,5 +50,18 @@ cards.forEach((card) => {     // Adds EventListener for each cardDiv
         }, 800);
       }
     };
+
+    if (counter === pairs) {
+      document.querySelector('.complete').classList.add('visible');
+    }
+
+  });
+});
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    resetBoard();
   });
 });
