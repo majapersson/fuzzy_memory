@@ -70,6 +70,7 @@ button {
 
 .clicked {
   background-color: tomato;
+  pointer-events: none;
 }
 .clicked h1 {
   opacity: 1;

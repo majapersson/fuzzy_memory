@@ -1,14 +1,13 @@
 /*
 * Shuffles stack and creates card div for each item in stack array
 */
-const createBoard = () => {
-  const shuffledStack = shuffle(stack); // Shuffles stack
+const createBoard = (array) => {
+  const shuffledStack = shuffle(array); // Shuffles stack
 
-  shuffledStack.forEach((card) => {
+  shuffledStack.forEach(card => {
     const cardDiv = `<div class="card" data-number=${card}><h1>${card}</div>`;
     document.querySelector('.board').innerHTML += cardDiv; // Insert div into .board container
   });
-  return shuffledStack;
 };
 
 /*
@@ -29,16 +28,24 @@ const shuffle = (array) => {
 * Shuffles the children of board container
 */
 const resetBoard = () => {
+  // Removes class matched
   const flipped = document.querySelectorAll('.matched');
   flipped.forEach(card => {
     card.classList.remove('matched');
   });
-
-  const complete = document.querySelector('.complete');
-  complete.classList.remove('visible');
-
+  // Removes class clicked
+  const clicked = document.querySelectorAll('.clicked');
+  clicked.forEach(card => {
+    card.classList.remove('clicked');
+  });
+  // Shuffles position of divs
   const board = document.querySelector('.board');
   for (let i = board.children.length; i >= 0; i--) {
      board.appendChild(board.children[Math.random() * i | 0]);
    };
+   // Makes game over div visible
+   const complete = document.querySelector('.complete');
+   complete.classList.remove('visible');
+  // Resets the counter
+  counter = 0;
 };
