@@ -75,10 +75,3 @@ button {
 .clicked h1 {
   opacity: 1;
 }
-.matched {
-  background-color: tomato;
-  pointer-events: none;
-}
-.matched h1 {
-  opacity: 1;
-}
