@@ -3,13 +3,19 @@
 *
 * @param {array} array
 */
-const createBoard = (array) => {
-  const shuffledStack = shuffle(array); // Shuffles stack
+const createBoard = (pairs) => {
+  for(let i=0; i<pairs; i++){   // Adds duplicates for each card in stack
+    stack.push(i, i);
+  };
+
+  const shuffledStack = shuffle(stack); // Shuffles stack
 
   shuffledStack.forEach(card => {
     const cardDiv = `<div class="card" data-number=${card}><h1>${card}</div>`;
     document.querySelector('.board').innerHTML += cardDiv; // Insert div into .board container
   });
+
+  document.querySelector('.start').classList.remove('visible');
 };
 
 // GAME LOGIC
@@ -20,8 +26,6 @@ const gameLogic = () => {
   let matchArray = [];
   let counter = 0;
 
-  console.log('Hello gamer!');
-
   cards.forEach((card) => {     // Adds EventListener for each cardDiv
     card.addEventListener('click', (event) => {
       event.target.classList.add('clicked'); // Flips card
@@ -29,6 +33,7 @@ const gameLogic = () => {
       matchArray.push(card);
 
       if (clickArray.length === 2) { // Compare logic
+        document.querySelector('body').classList.toggle('pointerNone');
         if (clickArray[0] === clickArray[1]){ // If cards data number match
           clickArray = [];
           matchArray = [];
@@ -41,6 +46,9 @@ const gameLogic = () => {
           matchArray = [];
           }, 800);
         };
+        setTimeout(() => {
+          document.querySelector('body').classList.toggle('pointerNone');
+        }, 800);
       };
 
       if (counter === pairs) {

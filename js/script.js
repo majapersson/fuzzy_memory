@@ -1,30 +1,35 @@
 
 // TO DO
 // - Change numbers to images
-// - Fix start screen (with innerHTML-function)
-
-// OPTIONAL
-// - Add difficulty (8, 10 or 12 pairs)
-
 
 'use strict';
 
-
-const pairs = 8;
+let pairs = 0;
 let stack = []; // Initiates array of cards
 
-for(let i=0; i<pairs; i++){   // Adds duplicates for each card in stack
-  stack.push(i, i);
-};
-
-// CREATE BOARD
-createBoard(stack);
-gameLogic();
+const easy = document.querySelector('.easy');
+easy.addEventListener('click', () => {
+  pairs = 8;
+  createBoard(pairs);
+  gameLogic();
+});
+const medium = document.querySelector('.medium');
+medium.addEventListener('click', () => {
+  pairs = 10;
+  createBoard(pairs);
+  gameLogic();
+});
+const hard = document.querySelector('.hard');
+hard.addEventListener('click', () => {
+  pairs = 12;
+  createBoard(pairs);
+  gameLogic();
+});
 
 // RESET BUTTON
-const buttons = document.querySelectorAll('button');
+const reset = document.querySelectorAll('.reset');
 
-buttons.forEach(button => {
+reset.forEach(button => {
   button.addEventListener('click', () => {
     resetBoard();
     createBoard(stack);
