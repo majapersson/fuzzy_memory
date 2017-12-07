@@ -16,6 +16,7 @@ const createBoard = (pairs) => {
   });
 
   document.querySelector('.start').classList.remove('visible');
+  document.querySelector('.invisible').classList.remove('invisible');
 };
 
 // GAME LOGIC
@@ -28,7 +29,8 @@ const gameLogic = () => {
 
   cards.forEach((card) => {     // Adds EventListener for each cardDiv
     card.addEventListener('click', (event) => {
-      event.target.classList.add('clicked'); // Flips card
+      event.target.classList.add('animation');
+      setTimeout(() => {event.target.classList.add('clicked');}, 200); // Flips card
       clickArray.push(event.target.dataset.number); // Adds data number to array
       matchArray.push(card);
 
@@ -40,10 +42,12 @@ const gameLogic = () => {
           counter++;
         } else {
           setTimeout(()=> {
-          matchArray[0].classList.remove('clicked');
-          matchArray[1].classList.remove('clicked');
-          clickArray = [];
-          matchArray = [];
+            matchArray[0].classList.remove('clicked');
+            matchArray[0].classList.remove('animation');
+            matchArray[1].classList.remove('clicked');
+            matchArray[1].classList.remove('animation');
+            clickArray = [];
+            matchArray = [];
           }, 800);
         };
         setTimeout(() => {
