@@ -1,4 +1,8 @@
 @media screen and (max-width: 400px) {
+  .board {
+    width: 100%;
+    height: 65%;
+  }
   .visible {
     height: 50%;
     width: 75%;
