@@ -16,7 +16,10 @@ const createBoard = (pairs) => {
   });
 
   document.querySelector('.start').classList.remove('visible');
-  document.querySelector('.invisible').classList.remove('invisible');
+  const resetButton = document.querySelector('body > button');
+  if (resetButton.classList.contains('invisible')){
+    resetButton.classList.remove('invisible');
+  };
 };
 
 // GAME LOGIC
@@ -25,7 +28,8 @@ const gameLogic = () => {
 
   let clickArray = [];
   let matchArray = [];
-  let counter = 0;
+  let matchCounter = 0;
+  let clickCounter = 0;
 
   cards.forEach((card) => {     // Adds EventListener for each cardDiv
     card.addEventListener('click', (event) => {
@@ -33,13 +37,15 @@ const gameLogic = () => {
       setTimeout(() => {event.target.classList.add('clicked');}, 200); // Flips card
       clickArray.push(event.target.dataset.number); // Adds data number to array
       matchArray.push(card);
+      clickCounter++;
+      console.log(clickCounter);
 
       if (clickArray.length === 2) { // Compare logic
         document.querySelector('body').classList.toggle('pointerNone');
         if (clickArray[0] === clickArray[1]){ // If cards data number match
           clickArray = [];
           matchArray = [];
-          counter++;
+          matchCounter++;
         } else {
           setTimeout(()=> {
             matchArray[0].classList.remove('clicked');
@@ -55,7 +61,8 @@ const gameLogic = () => {
         }, 800);
       };
 
-      if (counter === pairs) {
+      if (matchCounter === pairs) {
+        document.querySelector('.complete h2').textContent = `You cleared the game with ${clickCounter} clicks!`;
         document.querySelector('.complete').classList.add('visible');
       };
 
@@ -84,7 +91,7 @@ const shuffle = (array) => {
 
 
 /*
-* Resets board and counter
+* Resets board and matchCounter
 */
 const resetBoard = () => {
   // Remove class clicked
@@ -96,6 +103,6 @@ const resetBoard = () => {
   document.querySelector('.board').innerHTML = '';
   // Remove game over div
   document.querySelector('.complete').classList.remove('visible');
-  // Reset the counter
-  counter = 0;
+  // Reset the matchCounter
+  matchCounter = 0;
 };
