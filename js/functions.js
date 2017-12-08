@@ -72,12 +72,14 @@ const gameLogic = () => {
 * @returns {array} newArray
 */
 const shuffle = (array) => {
-  const newArray = [];
-  array.forEach(item => {
-    const index = Math.floor(Math.random() * array.length | 0);
-    newArray.splice(index, 0, item);
-  });
-  return newArray;
+    let j, x, i;
+    for (i = array.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = array[i];
+        array[i] = array[j];
+        array[j] = x;
+    }
+    return array;
 };
 
 

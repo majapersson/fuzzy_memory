@@ -1,7 +1,4 @@
 
-// TO DO
-// - Change numbers to images
-
 'use strict';
 
 let pairs = 0;
