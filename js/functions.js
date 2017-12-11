@@ -22,6 +22,10 @@ const createBoard = (pairs) => {
   };
 };
 
+/*
+* Game Logic
+* Adds event listener to cards and compares clicked cards to see if they match
+*/
 // GAME LOGIC
 const gameLogic = () => {
   const cards = document.querySelectorAll('.card'); // Creates array of cardDivs
