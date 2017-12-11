@@ -10,7 +10,7 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-  font-family: Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   height: 100vh;
   padding: 5%;
 }
@@ -29,10 +29,10 @@ p {
 
 .board {
   display: grid;
-  grid-template: none / repeat(4, 1fr);
+    grid-template: none / repeat(4, 1fr);
   height: 100%;
+  max-width: 800px;
   width: 100%;
-  max-width: 900px;
 }
 
 .complete, .start {
@@ -82,14 +82,7 @@ button.invisible {
   width: 75%;
 }
 
-.card h1 {
-  pointer-events: none;
-  opacity: 0;
-  transition: all .4s ease-in-out;
-}
-
 .clicked {
-  /*background-color: tomato;*/
   pointer-events: none;
   background-size: cover;
   background-position: center;
@@ -97,10 +90,6 @@ button.invisible {
 
 .animation {
   transform: rotateY(0deg);
-}
-
-.clicked h1 {
-  /*opacity: 1;*/
 }
 
 .pointerNone {
@@ -117,7 +106,7 @@ button.invisible {
   background-image: url('../images/christmas.jpg');
 }
 [data-number="3"].clicked {
-  background-image: url('../images/cowboy.jpg');
+  background-image: url('../images/frog.jpg');
 }
 [data-number="4"].clicked {
   background-image: url('../images/dino.jpg');

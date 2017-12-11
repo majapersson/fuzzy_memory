@@ -11,7 +11,7 @@ const createBoard = (pairs) => {
   const shuffledStack = shuffle(stack); // Shuffles stack
 
   shuffledStack.forEach(card => {
-    const cardDiv = `<div class="card" data-number=${card}><h1>${card}</div>`;
+    const cardDiv = `<div class="card" data-number=${card}></div>`;
     document.querySelector('.board').innerHTML += cardDiv; // Insert div into .board container
   });
 
@@ -38,7 +38,6 @@ const gameLogic = () => {
       clickArray.push(event.target.dataset.number); // Adds data number to array
       matchArray.push(card);
       clickCounter++;
-      console.log(clickCounter);
 
       if (clickArray.length === 2) { // Compare logic
         document.querySelector('body').classList.toggle('pointerNone');
