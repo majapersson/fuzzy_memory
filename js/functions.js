@@ -65,7 +65,7 @@ const gameLogic = () => {
       };
 
       if (matchCounter === pairs) {
-        document.querySelector('.complete h2').textContent = `You cleared the game with ${clickCounter} clicks!`;
+        document.querySelector('.complete h2').textContent = `You cleared the game with ${clickCounter/2} tries!`;
         document.querySelector('.complete').classList.add('visible');
       };
 

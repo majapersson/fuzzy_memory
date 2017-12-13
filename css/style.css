@@ -59,9 +59,14 @@ button {
   background-color: tomato;
   border: none;
   border-radius: 5%;
+  cursor: pointer;
   color: white;
-  padding: 1em;
   max-width: 50%;
+  padding: 1em;
+  transition: background .4s;
+}
+button:hover {
+  background-color: #e84022;
 }
 button.invisible {
   display: none;
@@ -71,6 +76,7 @@ button.invisible {
   align-self:center;
   background-color: lightGreen;
   border-radius: 10%;
+  cursor: pointer;
   display: flex;
     align-items: center;
     justify-content: center;
