@@ -17,6 +17,10 @@ This is an [assignment](https://github.com/yrgo/wu17/tree/master/JavaScript/07%2
 - When all cards have been revealed and are lying face up, the game is won!
 - You can reset the game at any time by pressing the 'Reset'-button
 
+## Testers
+- Rickard Pietsch
+- Maria Eidland
+
 ### 2017-12-07
 - Added pictures and credits
 - Added flip animation
