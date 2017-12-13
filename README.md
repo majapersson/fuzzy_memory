@@ -20,6 +20,10 @@ This is an [assignment](https://github.com/yrgo/wu17/tree/master/JavaScript/07%2
 ## Testers
 - Rickard Pietsch
 
+## Testers
+- Rickard Pietsch
+- Maria Eidland
+
 ### 2017-12-07
 - Added pictures and credits
 - Added flip animation
