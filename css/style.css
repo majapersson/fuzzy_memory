@@ -31,7 +31,7 @@ p {
   display: grid;
     grid-template: none / repeat(4, 1fr);
   height: 100%;
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
 }
 
